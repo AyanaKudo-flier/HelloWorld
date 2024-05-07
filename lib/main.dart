@@ -71,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const SizedBox(height: 50),
+            // アイテムのセル
             SizedBox(
               height: 210,
               width: 120,
