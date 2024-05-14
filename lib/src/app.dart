@@ -55,11 +55,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: '検索'),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: '検索'),
+            BottomNavigationBarItem(icon: Icon(Icons.movie), label: '動画'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.notifications), label: '動画'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ランキング'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ショップ'),
+                icon: Icon(Icons.format_list_numbered), label: 'ランキング'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag), label: 'ショップ'),
           ],
           type: BottomNavigationBarType.fixed,
         ));
