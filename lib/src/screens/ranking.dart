@@ -838,6 +838,13 @@ class _RankingScreenState extends State<RankingScreen> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        shape: const CircleBorder(),
+        onPressed: () {
+          print('ボタンが押されました');
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
