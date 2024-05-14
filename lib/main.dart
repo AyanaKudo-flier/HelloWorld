@@ -256,8 +256,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               const SizedBox(height: 4),
-              Image.network(
-                  'https://cloudflare.lipscosme.com/campaign_notice/3c49b0226715871926594120-1713848709.png'),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Image.network(
+                    'https://cloudflare.lipscosme.com/campaign_notice/3c49b0226715871926594120-1713848709.png'),
+              ),
 
               const SizedBox(height: 20),
               const Align(
@@ -271,8 +274,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 210,
                     width: 120,
                     child: Container(
-                      padding: const EdgeInsets.all(8),
-                      margin: const EdgeInsets.all(4),
+                      // issue: marginとpaddingの使い分けどうしよう
+                      // ランキング順位はセルの左上端に合わせたいけど画像より下のテキストは周りに余白をつけたい
+                      // padding: const EdgeInsets.all(8),
+                      margin: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white),
@@ -282,6 +287,18 @@ class _MyHomePageState extends State<MyHomePage> {
                             Image.network(
                                 'https://cloudflare.lipscosme.com/image/2a887d54a85339d23b882e29-1610080449.png',
                                 height: 90),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 20,
+                                height: 20,
+                                color: Colors.grey,
+                                child: const Text('01',
+                                    style: TextStyle(
+                                        fontSize: 9, color: Colors.white)),
+                              ),
+                            ),
                             const Align(
                                 alignment: Alignment.bottomRight,
                                 child: Icon(Icons.bookmark_border_outlined,
@@ -551,7 +568,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           const Align(
                             alignment: Alignment.centerLeft,
-                            child: Text('ディオールショウ サンク クルール',
+                            // issue: テキストを2行で表示しない場合も2行分のスペースを空けたい
+                            child: Text('ディオール',
                                 style: TextStyle(fontSize: 11),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2),
