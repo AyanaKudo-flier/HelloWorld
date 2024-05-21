@@ -14,14 +14,14 @@ import 'package:flutter/material.dart';
 //   }
 // }
 
-class RankingScreen extends StatefulWidget {
-  const RankingScreen({Key? key}) : super(key: key);
+class RankingPage extends StatefulWidget {
+  const RankingPage({Key? key}) : super(key: key);
 
   @override
-  State<RankingScreen> createState() => _RankingScreenState();
+  State<RankingPage> createState() => _RankingScreenState();
 }
 
-class _RankingScreenState extends State<RankingScreen> {
+class _RankingScreenState extends State<RankingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
