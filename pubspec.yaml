@@ -39,6 +39,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   json_annotation: ^4.9.0
   hooks_riverpod: ^2.5.1
+  dart_ipify: ^1.1.1
 
 dev_dependencies:
   flutter_test:

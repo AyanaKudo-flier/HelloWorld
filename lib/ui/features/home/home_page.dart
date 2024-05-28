@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:helloworld/data/providers/providers.dart';
 import 'package:logger/logger.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,6 +26,10 @@ class HomePage extends HookConsumerWidget {
       useMemoized(
         () async {
           try {
+            // 基本はref.watch
+            // 1回だけの読み込みはread（基本使わない）
+            await ref.watch(deviceInfoProvider.notifier).fetchIpInfo();
+
             final Response response = await Dio()
                 .get('https://official-joke-api.appspot.com/jokes/random');
             final Joke joke = Joke.fromJson(response.data);
@@ -46,7 +51,12 @@ class HomePage extends HookConsumerWidget {
           if (future.connectionState == ConnectionState.waiting)
             const Text('データフェッチ中です'),
           if (future.connectionState == ConnectionState.done)
-            Text(jokeLocalState.value.setup),
+            Column(
+              children: [
+                Text(jokeLocalState.value.setup),
+                Text(ref.watch(deviceInfoProvider).toString())
+              ],
+            ),
         ],
       ),
     );

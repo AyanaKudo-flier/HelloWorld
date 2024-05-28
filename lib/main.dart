@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../ui/features/home/home_page.dart';
 import '../ui/features/search/search_page.dart';
@@ -7,7 +8,11 @@ import '../ui/features/ranking/ranking_page.dart';
 import '../ui/features/shop/shop_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
